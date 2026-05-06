@@ -1,10 +1,8 @@
 const express = require('express');
-const { body } = require('express-validator');
 const {
-  getTasks, createTask, getTask, updateTask, deleteTask, getDashboardStats, getMyTasksUnified
+  getDashboardStats, getMyTasksUnified
 } = require('../controllers/taskController');
 const { authenticate } = require('../middleware/auth');
-const { requireProjectMember } = require('../middleware/rbac');
 
 const router = express.Router();
 

@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // ── Routes ────────────────────────────────────────────────────────────────────
 app.use('/api/auth', authRoutes);
-app.use('/api', taskRoutes);          // handles /api/dashboard + /api/projects/:id/tasks
+app.use('/api', taskRoutes);          // handles /api/dashboard + /api/my-tasks-unified
 app.use('/api', userTaskRoutes);       // handles /api/user-tasks
 
 // ── Health check ──────────────────────────────────────────────────────────────
@@ -40,6 +40,7 @@ app.use((err, req, res, next) => {
 
 // ── Start ─────────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 TaskFlow API running on http://localhost:${PORT}`);
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 TaskFlow API running on port ${PORT}`);
 });
